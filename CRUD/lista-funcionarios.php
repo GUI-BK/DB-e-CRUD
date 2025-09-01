@@ -21,27 +21,34 @@ include_once './include/header.php';
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Funcionário A</td>
-            <td>Cargo A</td>
-            <td>Setor A</td>
+          <?php
+          $sql = "SELECT
+          funcionarios.funcionarioID AS funcionarioID,
+          funcionarios.Nome AS funcionario_nome,
+          cargos.Nome AS cargo_nome,
+          setor.Nome AS setor_nome
+          FROM
+          funcionarios
+          INNER JOIN
+          cargos ON funcionarios.CargoID = cargos.CargoID
+          INNER JOIN
+          setor ON funcionarios.SetorID = setor.SetorID";
+          $result = mysqli_query($conn, $sql);
+          foreach($result as $row){
+            echo '
+            <tr>
+            <td>'.$row['funcionarioID'].'</td>
+            <td>'.$row['funcionario_nome'].'</td>
+            <td>'.$row['cargo_nome'].'</td>
+            <td>'.$row['setor_nome'].'</td>
             <td>
-              <a href="#" class="btn btn-edit">Editar</a>
-              <a href="#" class="btn btn-delete">Excluir</a>
+            <a href="#" class="btn btn-edit">Editar</a>
+            <a href="#" class="btn btn-delete">Excluir</a>
             </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Funcionário B</td>
-            <td>Cargo B</td>
-            <td>Setor B</td>
-            <td>
-              <a href="#" class="btn btn-edit">Editar</a>
-              <a href="#" class="btn btn-delete">Excluir</a>
-            </td>
-          </tr>
-          
+            </tr>
+            ';
+          }
+          ?>
         </tbody>
       </table>
     </div>

@@ -14,33 +14,40 @@ include_once './include/header.php';
             <tr>
               <th>ID</th>
               <th>Produto</th>
-              <th>Quantidade</th>
+              <th>Produtor</th>
               <th>Data</th>
               <th>Ações</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Produto A</td>
-              <td>100</td>
-              <td>2025-04-10</td>
-              <td>
-                <a href="#" class="btn btn-edit">Editar</a>
-                <a href="#" class="btn btn-delete">Excluir</a>
-              </td>
+            <?php
+            $sql = "SELECT
+            producao.ProducaoID AS ProducaoID,
+            produtos.Nome AS produto_nome,
+            funcionarios.Nome AS funcionario_nome,
+            producao.DataProducao AS DataProducao
+            FROM
+            producao
+            INNER JOIN
+            produtos ON producao.ProdutoID = produtos.ProdutoID
+            INNER JOIN
+            funcionarios ON producao.FuncionarioID = funcionarios.FuncionarioID";
+            $result = mysqli_query($conn, $sql);
+            foreach($result as $row){
+              echo '
+              <tr>
+            <td>'.$row['ProducaoID'].'</td>
+            <td>'.$row['produto_nome'].'</td>
+            <td>'.$row['funcionario_nome'].'</td>
+            <td>'.$row['DataProducao'].'</td>
+            <td>
+            <a href="#" class="btn btn-edit">Editar</a>
+            <a href="#" class="btn btn-delete">Excluir</a>
+            </td>
             </tr>
-            <tr>
-              <td>2</td>
-              <td>Produto B</td>
-              <td>250</td>
-              <td>2025-04-12</td>
-              <td>
-                <a href="#" class="btn btn-edit">Editar</a>
-                <a href="#" class="btn btn-delete">Excluir</a>
-              </td>
-            </tr>
-            
+            ';
+            }
+            ?>
           </tbody>
         </table>
       </div>

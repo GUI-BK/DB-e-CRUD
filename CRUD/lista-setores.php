@@ -21,27 +21,24 @@ include_once './include/header.php';
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Dado A</td>
-              <td>1</td>
-              <td>Verde</td>
-              <td>
-                <a href="#" class="btn btn-edit">Editar</a>
-                <a href="#" class="btn btn-delete">Excluir</a>
-              </td>
+          <?php
+            $sql = "SELECT * FROM setor";
+            $result = mysqli_query($conn, $sql);
+            foreach($result as $row){
+              echo '
+              <tr>
+            <td>'.$row['SetorID'].'</td>
+            <td>'.$row['Nome'].'</td>
+            <td>'.$row['Andar'].'</td>
+            <td>'.$row['Cor'].'</td>
+            <td>
+            <a href="#" class="btn btn-edit">Editar</a>
+            <a href="#" class="btn btn-delete">Excluir</a>
+            </td>
             </tr>
-            <tr>
-              <td>2</td>
-              <td>Dado B</td>
-              <td>1</td>
-              <td>Verde</td>
-              <td>
-                <a href="#" class="btn btn-edit">Editar</a>
-                <a href="#" class="btn btn-delete">Excluir</a>
-              </td>
-            </tr>
-            
+            ';
+            }
+            ?>
           </tbody>
         </table>
       </div>

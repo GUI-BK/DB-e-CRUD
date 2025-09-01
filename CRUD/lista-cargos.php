@@ -20,24 +20,21 @@ include_once './include/header.php';
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Dado A</td>
-              <td>100</td>
+            <?php
+            $sql = "SELECT * FROM cargos";
+            $result = mysqli_query($conn, $sql);
+            foreach($result as $row){
+              echo '<tr>
+              <td>'.$row['CargoID'].'</td>
+              <td>'.$row['Nome'].'</td>
+              <td>'.$row['TetoSalarial'].'</td>
               <td>
-                <a href="salvar-cargos.php?id=" class="btn btn-edit">Editar</a>
+               <a href="salvar-cargos.php?id='.$row['CargoID'].'" class="btn btn-edit">Editar</a>
                 <a href="#" class="btn btn-delete">Excluir</a>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Dado B</td>
-              <td>250</td>
-              <td>
-                <a href="salvar-cargos.php?id=" class="btn btn-edit">Editar</a>
-                <a href="#" class="btn btn-delete">Excluir</a>
-              </td>
-            </tr>
+               </td>
+              </tr>';
+            }
+            ?>
             
           </tbody>
         </table>

@@ -42,7 +42,7 @@ include_once './include/header.php';
             <td>'.$row['DataProducao'].'</td>
             <td>
             <a href="#" class="btn btn-edit">Editar</a>
-            <a href="#" class="btn btn-delete">Excluir</a>
+            <a href="./action/delete-producao.php?id='.$row['ProducaoID'].'" class="btn btn-delete">Excluir</a>
             </td>
             </tr>
             ';

@@ -24,7 +24,7 @@ include_once './include/header.php';
           <?php
           $sql = "SELECT
           funcionarios.funcionarioID AS funcionarioID,
-          funcionarios.Nome AS funcionario_nome,
+          funcionarios.Nome AS funcionario_nome ,         
           cargos.Nome AS cargo_nome,
           setor.Nome AS setor_nome
           FROM
@@ -43,7 +43,7 @@ include_once './include/header.php';
             <td>'.$row['setor_nome'].'</td>
             <td>
             <a href="#" class="btn btn-edit">Editar</a>
-            <a href="#" class="btn btn-delete">Excluir</a>
+            <a href="./action/delete-funcionarios.php?id='.$row['funcionarioID'].'" class="btn btn-delete">Excluir</a>
             </td>
             </tr>
             ';

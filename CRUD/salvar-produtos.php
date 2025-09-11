@@ -16,6 +16,13 @@ include_once './include/header.php';
           <textarea placeholder="Descrição"></textarea>
           <select>
             <option value="">Categoria</option>
+            <?php
+            $sql = "SELECT * FROM categorias";
+            $result = mysqli_query($conn,$sql);
+            foreach($result as $row){
+              echo '<option value="'.$row['CategoriaID'].'">'.$row['Nome'].'</option>';
+            }
+            ?>
           </select>
           <button type="submit">Salvar</button>
         </form>

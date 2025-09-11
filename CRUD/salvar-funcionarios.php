@@ -24,9 +24,23 @@ include_once './include/header.php';
           <input type="text" placeholder="RG">
           <select>
             <option value="">Cargo</option>
+            <?php
+            $sql = "SELECT * FROM cargos";
+            $result = mysqli_query($conn,$sql);
+            foreach($result as $row){
+              echo '<option value="'.$row['CargoID'].'">'.$row['Nome'].'</option>';
+            }
+            ?>
           </select>
           <select>
             <option value="">Setor</option>
+            <?php
+            $sql = "SELECT * FROM setor";
+            $result = mysqli_query($conn,$sql);
+            foreach($result as $row){
+              echo '<option value="'.$row['SetorID'].'">'.$row['Nome'].'</option>';
+            }
+            ?>
           </select>
           <button type="submit">Salvar</button>
         </form>

@@ -11,9 +11,23 @@ include_once './include/header.php';
           <h2>Cadastro de Produção de Produtos</h2>
           <select>
             <option value="">Funcionário</option>
+            <?php
+            $sql = "SELECT * FROM funcionarios";
+            $result = mysqli_query($conn,$sql);
+            foreach($result as $row){
+              echo '<option value="'.$row['FuncionarioID'].'">'.$row['Nome'].'</option>';
+            }
+            ?>
           </select>
           <select>
             <option value="">Produto</option>
+            <?php
+            $sql = "SELECT * FROM produtos";
+            $result = mysqli_query($conn,$sql);
+            foreach($result as $row){
+              echo '<option value="'.$row['ProdutoID'].'">'.$row['Nome'].'</option>';
+            }
+            ?>
           </select>
           <label for="">Data da entrega</label>
           <input type="date" placeholder="Data da Entrega">

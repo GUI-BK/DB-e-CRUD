@@ -7,9 +7,9 @@ include_once './include/header.php';
   <main>
 
     <div id="producao" class="tela">
-        <form class="crud-form" method="post" action="">
+        <form class="crud-form" method="post" action="./action/insert-producao.php">
           <h2>Cadastro de Produção de Produtos</h2>
-          <select>
+          <select name="funcionario">
             <option value="">Funcionário</option>
             <?php
             $sql = "SELECT * FROM funcionarios";
@@ -19,7 +19,7 @@ include_once './include/header.php';
             }
             ?>
           </select>
-          <select>
+          <select name="produto">
             <option value="">Produto</option>
             <?php
             $sql = "SELECT * FROM produtos";
@@ -29,9 +29,10 @@ include_once './include/header.php';
             }
             ?>
           </select>
-          <label for="">Data da entrega</label>
-          <input type="date" placeholder="Data da Entrega">
-          <input type="number" placeholder="Quantidade Produzida">
+          <label for="dataprod">Data da Produção</label>
+          <input type="date" name="dataprod" placeholder="Data de Produção">
+          <label for="dataent">Data da entrega</label>
+          <input type="date" name="dataent" placeholder="Data da Entrega">
           <button type="submit">Salvar</button>
         </form>
       </div>

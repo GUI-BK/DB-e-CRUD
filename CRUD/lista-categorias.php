@@ -14,6 +14,7 @@ include_once './include/header.php';
             <tr>
               <th>ID</th>
               <th>Nome</th>
+              <th>Descrição</th>
               <th>Ações</th>
             </tr>
           </thead>
@@ -26,6 +27,7 @@ include_once './include/header.php';
               <tr>
               <td>'.$row['CategoriaID'].'</td>
               <td>'.$row['Nome'].'</td>
+              <td>'.$row['Descricao'].'</td>
               <td>
               <a href="#" class="btn btn-edit">Editar</a>
               <a href="./action/delete-categorias.php?id='.$row['CategoriaID'].'" class="btn btn-delete">Excluir</a>

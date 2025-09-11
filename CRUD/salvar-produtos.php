@@ -8,13 +8,13 @@ include_once './include/header.php';
   <main>
 
     <div id="produtos" class="tela">
-        <form class="crud-form" action="" method="post">
+        <form class="crud-form" action="./action/insert-produtos.php" method="post">
           <h2>Cadastro de Produtos</h2>
-          <input type="text" placeholder="Nome do Produto">
-          <input type="number" placeholder="Preço">
-          <input type="number" placeholder="Peso (g)">
-          <textarea placeholder="Descrição"></textarea>
-          <select>
+          <input type="text" name="nome" placeholder="Nome do Produto">
+          <input type="number" name="preco" placeholder="Preço">
+          <input type="number" name="peso" placeholder="Peso (g)">
+          <textarea name="desc" placeholder="Descrição"></textarea>
+          <select name="categoria">
             <option value="">Categoria</option>
             <?php
             $sql = "SELECT * FROM categorias";

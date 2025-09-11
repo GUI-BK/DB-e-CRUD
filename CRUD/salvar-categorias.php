@@ -7,10 +7,10 @@ include_once './include/header.php';
   <main>
 
     <div id="categorias" class="tela">
-        <form class="crud-form" method="post" action="">
+        <form class="crud-form" method="post" action="./action/insert-categorias.php">
           <h2>Cadastro de Categorias</h2>
-          <input type="text" placeholder="Nome da Categoria">
-          <textarea placeholder="Descrição"></textarea>
+          <input type="text" name="nome" placeholder="Nome da Categoria">
+          <textarea name="desc" placeholder="Descrição"></textarea>
           <button type="submit">Salvar</button>
         </form>
       </div>

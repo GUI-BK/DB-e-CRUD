@@ -40,7 +40,7 @@ include_once './include/header.php';
             <td>'.$row['categoria_nome'].'</td>
             <td>'.$row['produto_preco'].'</td>
             <td>
-            <a href="#" class="btn btn-edit">Editar</a>
+            <a href="salvar-produtos.php?id='.$row['ProdutoID'].'" class="btn btn-edit">Editar</a>
             <a href="./action/delete-produtos.php?id='.$row['ProdutoID'].'" class="btn btn-delete">Excluir</a>
             </td>
             </tr>

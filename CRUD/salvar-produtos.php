@@ -6,8 +6,32 @@ include_once './include/header.php';
 ?>
   
   <main>
-
-    <div id="produtos" class="tela">
+  <?php
+  if(isset($_GET['id'])){
+    $id = intval($_GET['id']);
+    $sql = "SELECT * FROM produtos WHERE ProdutoID = $id";
+    $result = mysqli_query($conn, $sql);
+    $row2 = mysqli_fetch_assoc($result);
+    echo '<div id="produtos" class="tela">
+        <form class="crud-form" action="./action/edit-produtos.php?id='.$id.'" method="post">
+          <h2>Atualização de Produto</h2>
+          <input type="text" name="nome" placeholder="Nome do Produto" value="'.$row2['Nome'].'">
+          <input type="number" name="preco" placeholder="Preço" value="'.$row2['Preco'].'">
+          <input type="number" name="peso" placeholder="Peso (g)" value="'.$row2['Peso'].'">
+          <textarea name="desc" placeholder="Descrição">'.$row2['Descricao'].'</textarea>
+          <select name="categoria">
+            <option value="'.$row2['CategoriaID'].'">Categoria</option>';
+            $sql = "SELECT * FROM categorias";
+            $result = mysqli_query($conn,$sql);
+            foreach($result as $row){
+              echo '<option value="'.$row['CategoriaID'].'">'.$row['Nome'].'</option>';
+            }
+           echo '</select>
+          <button type="submit">Salvar</button>
+        </form>
+      </div>';
+  }else{
+    echo '<div id="produtos" class="tela">
         <form class="crud-form" action="./action/insert-produtos.php" method="post">
           <h2>Cadastro de Produtos</h2>
           <input type="text" name="nome" placeholder="Nome do Produto">
@@ -15,21 +39,19 @@ include_once './include/header.php';
           <input type="number" name="peso" placeholder="Peso (g)">
           <textarea name="desc" placeholder="Descrição"></textarea>
           <select name="categoria">
-            <option value="">Categoria</option>
-            <?php
+            <option value="">Categoria</option>';
             $sql = "SELECT * FROM categorias";
             $result = mysqli_query($conn,$sql);
             foreach($result as $row){
               echo '<option value="'.$row['CategoriaID'].'">'.$row['Nome'].'</option>';
             }
-            ?>
-          </select>
+           echo '</select>
           <button type="submit">Salvar</button>
         </form>
-      </div>
-
-
-   
+      </div>';
+  }
+  ?>
+  
   </main>
 
   <?php 

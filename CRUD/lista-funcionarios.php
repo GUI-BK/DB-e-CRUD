@@ -23,7 +23,7 @@ include_once './include/header.php';
         <tbody>
           <?php
           $sql = "SELECT
-          funcionarios.funcionarioID AS funcionarioID,
+          funcionarios.FuncionarioID AS FuncionarioID,
           funcionarios.Nome AS funcionario_nome ,         
           cargos.Nome AS cargo_nome,
           setor.Nome AS setor_nome
@@ -37,13 +37,13 @@ include_once './include/header.php';
           foreach($result as $row){
             echo '
             <tr>
-            <td>'.$row['funcionarioID'].'</td>
+            <td>'.$row['FuncionarioID'].'</td>
             <td>'.$row['funcionario_nome'].'</td>
             <td>'.$row['cargo_nome'].'</td>
             <td>'.$row['setor_nome'].'</td>
             <td>
-            <a href="#" class="btn btn-edit">Editar</a>
-            <a href="./action/delete-funcionarios.php?id='.$row['funcionarioID'].'" class="btn btn-delete">Excluir</a>
+            <a href="salvar-funcionarios.php?id='.$row['FuncionarioID'].'" class="btn btn-edit">Editar</a>
+            <a href="./action/delete-funcionarios.php?id='.$row['FuncionarioID'].'" class="btn btn-delete">Excluir</a>
             </td>
             </tr>
             ';

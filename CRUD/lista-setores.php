@@ -32,7 +32,7 @@ include_once './include/header.php';
             <td>'.$row['Andar'].'</td>
             <td>'.$row['Cor'].'</td>
             <td>
-            <a href="#" class="btn btn-edit">Editar</a>
+            <a href="salvar-setores.php?id='.$row['SetorID'].'" class="btn btn-edit">Editar</a>
             <a href="./action/delete-setores.php?id='.$row['SetorID'].'" class="btn btn-delete">Excluir</a>
             </td>
             </tr>

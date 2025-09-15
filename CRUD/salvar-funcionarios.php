@@ -13,7 +13,7 @@ include_once './include/header.php';
     $result = mysqli_query($conn, $sql);
     $row2 = mysqli_fetch_assoc($result);
     echo '<div id="funcionarios" class="tela">
-        <form class="crud-form" action="./action/edit-funcionarios.php?id='.$id.'" method="post">
+        <form class="crud-form" action="./action/funcionarios.php?id='.$id.'&acao=salvar" method="post">
           <h2>Atualização de Funcionário</h2>
           <input type="text" name="nome" placeholder="Nome" value="'.$row2['Nome'].'">
           <input type="date" name="datanasc" placeholder="Data de Nascimento" value="'.$row2['DataNascimento'].'">
@@ -48,7 +48,7 @@ include_once './include/header.php';
 
   }else{
     echo '<div id="funcionarios" class="tela">
-        <form class="crud-form" action="./action/insert-funcionarios.php" method="post">
+        <form class="crud-form" action="./action/funcionarios.php?acao=salvar" method="post">
           <h2>Cadastro de Funcionários</h2>
           <input type="text" name="nome" placeholder="Nome">
           <input type="date" name="datanasc" placeholder="Data de Nascimento">

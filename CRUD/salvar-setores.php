@@ -13,7 +13,7 @@ include_once './include/header.php';
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
     echo '<div id="setores" class="tela">
-        <form class="crud-form" method="post" action="./action/edit-setores.php?id='.$id.'">
+        <form class="crud-form" method="post" action="./action/setores.php?id='.$id.'&acao=salvar">
           <h2>Atualização de Setor</h2>
           <input type="text" name="nome" placeholder="Nome do Setor" value="'.$row['Nome'].'">
           <input type="text" name="andar" placeholder="Andar" value="'.$row['Andar'].'">
@@ -23,7 +23,7 @@ include_once './include/header.php';
       </div>';
   }else{
     echo '<div id="setores" class="tela">
-        <form class="crud-form" method="post" action="./action/insert-setores.php">
+        <form class="crud-form" method="post" action="./action/setores.php?acao=salvar">
           <h2>Cadastro de Setores</h2>
           <input type="text" name="nome" placeholder="Nome do Setor">
           <input type="text" name="andar" placeholder="Andar">

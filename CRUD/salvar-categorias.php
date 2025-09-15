@@ -12,7 +12,7 @@ if(isset($_GET['id'])){
   $result = mysqli_query($conn, $sql);
   $row = mysqli_fetch_assoc($result);
   echo '<div id="categorias" class="tela">
-        <form class="crud-form" method="post" action="./action/edit-categorias.php?id='.$id.'">
+        <form class="crud-form" method="post" action="./action/categorias.php?id='.$id.'&acao=salvar">
           <h2>Atualização de Categoria</h2>
           <input type="text" name="nome" placeholder="Nome da Categoria" value="'.$row['Nome'].'">
           <textarea name="desc" placeholder="Descrição">'.$row['Descricao'].'</textarea>
@@ -23,7 +23,7 @@ if(isset($_GET['id'])){
 ';
 }else{
   echo '<div id="categorias" class="tela">
-        <form class="crud-form" method="post" action="./action/insert-categorias.php">
+        <form class="crud-form" method="post" action="./action/categorias.php?acao=salvar">
           <h2>Cadastro de Categorias</h2>
           <input type="text" name="nome" placeholder="Nome da Categoria">
           <textarea name="desc" placeholder="Descrição"></textarea>

@@ -12,7 +12,7 @@ include_once './include/header.php';
     $result = mysqli_query($conn, $sql);
     $row2 = mysqli_fetch_assoc($result);
     echo '<div id="producao" class="tela">
-        <form class="crud-form" method="post" action="./action/edit-producao.php?id='.$id.'">
+        <form class="crud-form" method="post" action="./action/producao.php?id='.$id.'&acao=salvar">
           <h2>Atualização de Produção de Produtos</h2>
           <select name="funcionario">
             <option value="'.$row2['FuncionarioID'].'">Funcionário</option>';
@@ -39,7 +39,7 @@ include_once './include/header.php';
       </div>';
   }else{
     echo '<div id="producao" class="tela">
-        <form class="crud-form" method="post" action="./action/insert-producao.php">
+        <form class="crud-form" method="post" action="./action/producao.php?acao=salvar">
           <h2>Cadastro de Produção de Produtos</h2>
           <select name="funcionario">
             <option value="">Funcionário</option>';

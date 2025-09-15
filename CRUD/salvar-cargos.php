@@ -13,7 +13,7 @@ if(isset($_GET['id'])){
   $result = mysqli_query($conn, $sql);
   $row = mysqli_fetch_assoc($result);
   echo '<div id="cargos" class="tela">
-    <form class="crud-form" action="./action/edit-cargos.php?id='.$id.'" method="post">
+    <form class="crud-form" action="./action/cargos.php?id='.$id.'&acao=salvar" method="post">
       <h2>Atualizar Cargo</h2>
       <input type="text" name="nome" placeholder="Nome do Cargo" value="'.$row['Nome'].'">
       <input type="number" name="TetoSal" placeholder="Teto Salarial" value="'.$row['TetoSalarial'].'">
@@ -23,7 +23,7 @@ if(isset($_GET['id'])){
 ';
 }else{
   echo '<div id="cargos" class="tela">
-    <form class="crud-form" action="./action/insert-cargos.php" method="post">
+    <form class="crud-form" action="./action/cargos.php?acao=salvar" method="post">
       <h2>Cadastro de Cargos</h2>
       <input type="text" name="nome" placeholder="Nome do Cargo">
       <input type="number" name="TetoSal" placeholder="Teto Salarial">

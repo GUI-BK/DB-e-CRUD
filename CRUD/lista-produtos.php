@@ -41,7 +41,7 @@ include_once './include/header.php';
             <td>'.$row['produto_preco'].'</td>
             <td>
             <a href="salvar-produtos.php?id='.$row['ProdutoID'].'" class="btn btn-edit">Editar</a>
-            <a href="./action/delete-produtos.php?id='.$row['ProdutoID'].'" class="btn btn-delete">Excluir</a>
+            <a href="./action/produtos.php?id='.$row['ProdutoID'].'&acao=excluir" class="btn btn-delete">Excluir</a>
             </td>
             </tr>
             ';

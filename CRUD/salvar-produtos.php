@@ -10,8 +10,14 @@ include_once './include/header.php';
   if(isset($_GET['id'])){
     $id = intval($_GET['id']);
     $sql = "SELECT * FROM produtos WHERE ProdutoID = $id";
+    $sql2 = "SELECT categorias.Nome AS categoria_nome
+              FROM produtos
+              JOIN categorias ON categorias.CategoriaID = produtos.CategoriaID
+              WHERE produtos.ProdutoID = $id";
     $result = mysqli_query($conn, $sql);
+    $result2 = mysqli_query($conn, $sql2);
     $row2 = mysqli_fetch_assoc($result);
+    $row3 = mysqli_fetch_assoc($result2);
     echo '<div id="produtos" class="tela">
         <form class="crud-form" action="./action/produtos.php?id='.$id.'&acao=salvar" method="post">
           <h2>Atualização de Produto</h2>
@@ -20,7 +26,7 @@ include_once './include/header.php';
           <input type="number" name="peso" placeholder="Peso (g)" value="'.$row2['Peso'].'">
           <textarea name="desc" placeholder="Descrição">'.$row2['Descricao'].'</textarea>
           <select name="categoria">
-            <option value="'.$row2['CategoriaID'].'">Categoria</option>';
+            <option value="'.$row2['CategoriaID'].'">'.$row3['categoria_nome'].'</option>';
             $sql = "SELECT * FROM categorias";
             $result = mysqli_query($conn,$sql);
             foreach($result as $row){

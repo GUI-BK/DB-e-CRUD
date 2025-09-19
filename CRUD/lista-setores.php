@@ -33,7 +33,7 @@ include_once './include/header.php';
             <td>'.$row['Cor'].'</td>
             <td>
             <a href="salvar-setores.php?id='.$row['SetorID'].'" class="btn btn-edit">Editar</a>
-            <a href="./action/setores.php?id='.$row['SetorID'].'&acao=excluir" class="btn btn-delete">Excluir</a>
+            <a href="./action/setores.php?id='.$row['SetorID'].'&acao=excluir" class="btn btn-delete" onclick="return confirm(\'Tem certeza que deseja excluir?\')">Excluir</a>
             </td>
             </tr>
             ';

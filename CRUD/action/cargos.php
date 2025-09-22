@@ -13,7 +13,12 @@ switch ($acao){
         $result = mysqli_query($conn, $sql);
         if($result === TRUE){
     echo "<script>alert('Cargo excluído com sucesso!'); window.location.href='../lista-cargos.php';</script>";
-    }
+    }else{
+        if(strpos(mysqli_error($conn), 'foreign key constraint fails')){
+            header("Location: ../lista-cargos.php?error=true");
+        }
+    }   
+    
     break;
     case 'salvar':
         if(!empty($id)){

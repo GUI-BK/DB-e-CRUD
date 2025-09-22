@@ -38,7 +38,7 @@ include_once './include/header.php';
             <td>'.$row['ProdutoID'].'</td>
             <td>'.$row['produto_nome'].'</td>
             <td>'.$row['categoria_nome'].'</td>
-            <td>R$'.number_format($row['produto_preco'],2,',','.').'</td>
+            <td>R$ '.number_format($row['produto_preco'],2,',','.').'</td>
             <td>
             <a href="salvar-produtos.php?id='.$row['ProdutoID'].'" class="btn btn-edit">Editar</a>
             <a href="./action/produtos.php?id='.$row['ProdutoID'].'&acao=excluir" class="btn btn-delete" onclick="return confirm(\'Tem certeza que deseja excluir?\')">Excluir</a>

@@ -6,7 +6,6 @@ $acao = htmlspecialchars($_GET['acao']);
 if(isset($_GET['id'])){
     $id = intval($_GET['id']);
 }
-
 switch ($acao){
     case 'excluir':
         $sql = "DELETE FROM funcionarios WHERE FuncionarioID = $id";
@@ -14,7 +13,6 @@ switch ($acao){
         if($result === TRUE){
         echo "<script>alert('Funcionário excluído com sucesso!'); window.location.href='../lista-funcionarios.php';</script>";
         }
-    break;
     case 'salvar':
         if(!empty($id)){
             if($_SERVER ['REQUEST_METHOD'] === 'POST'){

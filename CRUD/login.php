@@ -18,10 +18,10 @@
   <main>
 
     <div id="login" class="tela active">
-      <form class="login-form" onsubmit="return login()">
+      <form class="login-form" action="./action/logar.php" method="post">
         <h2>Login</h2>
-        <input type="text" id="usuario" placeholder="Usuário" required />
-        <input type="password" id="senha" placeholder="Senha" required />
+        <input type="text" id="usuario" name="user" placeholder="Usuário" required />
+        <input type="password" id="senha" name="senha" placeholder="Senha" required />
         <button type="submit">Entrar</button>
       </form>
     </div>

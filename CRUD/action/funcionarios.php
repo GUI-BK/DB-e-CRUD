@@ -12,7 +12,12 @@ switch ($acao){
         $result = mysqli_query($conn, $sql);
         if($result === TRUE){
         echo "<script>alert('Funcionário excluído com sucesso!'); window.location.href='../lista-funcionarios.php';</script>";
+        }else{
+            if(strpos(mysqli_error($conn), 'foreign key constraint fails')){
+                header("Location: ../lista-funcionarios.php?error=true");
+            }
         }
+    break;   
     case 'salvar':
         if(!empty($id)){
             if($_SERVER ['REQUEST_METHOD'] === 'POST'){

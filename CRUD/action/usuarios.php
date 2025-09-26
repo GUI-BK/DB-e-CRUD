@@ -13,7 +13,11 @@ switch ($acao){
         $result = mysqli_query($conn, $sql);
         if($result === TRUE){
         echo "<script>alert('Usuário excluído com sucesso!'); window.location.href='../lista-usuarios.php';</script>";
-        }
+        }else{
+            if(strpos(mysqli_error($conn), 'foreign key constraint fails')){
+                header("Location: ../lista-usuarios.php?error=true");
+            }
+        }   
     break;
     case 'salvar':
         if(!empty($id)){
@@ -23,8 +27,9 @@ switch ($acao){
                 $user = $_POST['user'];
                 $email = $_POST['email'];
                 $senha = $_POST['senha'];
+                $hash = password_hash($senha, PASSWORD_DEFAULT);
             
-                $sql = "UPDATE usuarios SET Nome = '$nome', Usuario = '$desc', Email = '$email', Senha = '$senha' WHERE UsuarioID = $id";
+                $sql = "UPDATE usuarios SET Nome = '$nome', Usuario = '$desc', Email = '$email', Senha = '$hash' WHERE UsuarioID = $id";
                 $result = mysqli_query($conn, $sql);
                 if($result === TRUE){
                     echo "<script>alert('Usuário atualizado com sucesso!'); window.location.href='../lista-usuarios.php';</script>";
@@ -36,8 +41,9 @@ switch ($acao){
                 $user = $_POST['user'];
                 $email = $_POST['email'];
                 $senha = $_POST['senha'];
+                $hash = password_hash($senha, PASSWORD_DEFAULT);
             
-                $sql = "INSERT INTO usuarios (Nome, Usuario, Email, Senha) VALUES ('$nome','$user','$email','$senha')";
+                $sql = "INSERT INTO usuarios (Nome, Usuario, Email, Senha) VALUES ('$nome','$user','$email','$hash')";
                 $result = mysqli_query($conn, $sql);
                 if($result === TRUE){
                     echo "<script>alert('Usuário inserido com sucesso!'); window.location.href='../lista-usuarios.php';</script>";

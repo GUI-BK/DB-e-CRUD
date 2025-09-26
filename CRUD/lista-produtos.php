@@ -3,13 +3,33 @@
 include_once './include/logado.php';
 include_once './include/conexao.php';
 include_once './include/header.php';
+
 ?>
+<style>
+  .error_box{
+    display: block;
+    height: 100spx;
+    width: 100%;
+    background-color: #dc3545;
+    border: 2px solid darkred;
+    color: white;
+    margin-top: 5px;
+  }
+</style>
+  <main>
 
-<main>
+    <div class="container">
+        <h1>Lista de Produtos</h1>
+        <a href="./salvar-produtos.php" class="btn btn-add">Incluir</a>
+        <?php
+        if(isset($_GET['error'])){
+          echo '<div class="error_box">
+          <p>Este item não pode ser excluído</p>
+          </div>
+          ';
 
-  <div class="container">
-      <h1>Lista de Produtos</h1>
-      <a href="./salvar-produtos.php" class="btn btn-add">Incluir</a> 
+        }
+        ?>
       <table>
         <thead>
           <tr>

@@ -14,7 +14,7 @@ if(isset($_GET['id'])){
   $row = mysqli_fetch_assoc($result);
   echo '<div id="cargos" class="tela">
     <form class="crud-form" action="./action/cargos.php?id='.$id.'&acao=salvar" method="post">
-      <h2>Atualizar Cargo</h2>
+      <h2>Atualização de Cargo</h2>
       <input type="text" name="nome" placeholder="Nome do Cargo" value="'.$row['Nome'].'">
       <input type="number" name="TetoSal" placeholder="Teto Salarial" value="'.$row['TetoSalarial'].'">
       <button type="submit">Salvar</button>

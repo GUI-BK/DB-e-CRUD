@@ -21,6 +21,6 @@
         <a href="./lista-producao.php">Produção</a>
         <a href="./lista-usuarios.php">Usuários</a>
         <a href="./relatorios.php">Relatório</a>
-        <a href="./logoff.php">Sair</a>
+        <a href="./logoff.php" onclick="return confirm('Tem certeza que deseja sair?')">Sair</a>
       </nav>
   </header>

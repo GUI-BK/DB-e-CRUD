@@ -13,7 +13,11 @@ switch ($acao){
         $result = mysqli_query($conn, $sql);
         if($result === TRUE){
         echo "<script>alert('Produção excluída com sucesso!'); window.location.href='../lista-producao.php';</script>";
-        }
+        }else{
+            if(strpos(mysqli_error($conn), 'foreign key constraint fails')){
+                header("Location: ../lista-producao.php?error=true");
+            }
+        }   
     break;
     case 'salvar':
         if(!empty($id)){

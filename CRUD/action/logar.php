@@ -19,6 +19,9 @@ if($_SERVER ['REQUEST_METHOD'] === 'POST'){
         echo "<script>alert('Usuário ou senha incorretos'); window.location.href='../index.php'</script>";
         session_destroy();
         }
+    }else{
+    echo "<script>alert('Usuário ou senha incorretos'); window.location.href='../index.php'</script>";
+    session_destroy();
     }
 }
 ?>
